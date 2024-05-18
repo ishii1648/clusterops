@@ -1,0 +1,7 @@
+# SelfSigned issuers are useful for creating root certificates
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: selfsigned
+spec:
+  selfSigned: {}

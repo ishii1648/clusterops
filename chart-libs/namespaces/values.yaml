@@ -1,0 +1,6 @@
+# For example:
+#  namespaces:
+#  - name: hogehoge
+#    metadata:
+#      istio-injection: enabled
+namespaces: []

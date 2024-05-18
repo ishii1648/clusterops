@@ -1,0 +1,37 @@
+{{- $appNamespace := .Values.appName }}
+
+{{- if eq .Values.appName "bookinfo" }}
+releases:
+  - name: namespaces-apps
+    chart: ./chart-libs/namespaces
+    version: v0.1.0
+    values:
+      - namespaces:
+        - name: {{ $appNamespace }}
+          labels:
+            istio-injection: enabled
+
+  - name: bookinfo
+    chart: ./chart-libs/bookinfo
+    version: v0.1.0
+    namespace: {{ $appNamespace }}
+    forceNamespace: {{ $appNamespace }}
+{{- end}}
+
+{{- if eq .Values.appName "httpbin" }}
+releases:
+  - name: namespaces-apps
+    chart: ./chart-libs/namespaces
+    version: v0.1.0
+    values:
+      - namespaces:
+        - name: {{ $appNamespace }}
+          labels:
+            istio-injection: enabled
+
+  - name: httpbin
+    chart: ./chart-libs/httpbin
+    version: v0.1.0
+    namespace: {{ $appNamespace }}
+    forceNamespace: {{ $appNamespace }}
+{{- end}}

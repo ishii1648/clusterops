@@ -1,0 +1,10 @@
+apiVersion: v2
+
+name: istio-certificates
+type: application
+
+annotations:
+  artifacthub.io/license: Apache-2.0
+  artifacthub.io/category: security
+
+version: 0.1.0
